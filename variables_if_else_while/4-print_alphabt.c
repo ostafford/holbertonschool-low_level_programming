@@ -11,14 +11,10 @@
 int main(void)
 {
 char chlow = 'a';
-char chup = 'A';
 for (chlow = 'a'; chlow <= 'z'; chlow++)
+if (chlow != 'e' && chlow != 'q')
 {
 putchar(chlow);
-}
-for (chup = 'A'; chup <= 'Z'; chup++)
-{
-putchar(chup);
 }
 putchar('\n');
 return (0);
