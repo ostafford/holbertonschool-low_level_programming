@@ -1,4 +1,7 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
+/* more headers goes there */
 
 /**
  * main - Entry Point
@@ -13,16 +16,15 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	if (n > 0)
 	{
-	printf("is positive");
+	printf("%i is positive\n", n);
 	}
 	else if (n == 0)
 	{
-	printf("is zero");
+	printf("%i is zero\n", n);
 	}
-	else
-	(n < 0)
+	else if (n < 0)
 	{
-	printf("is negative\n");
+	printf("%i is negative\n, n");
 	}
-return (0);
+	return (0);
 }
