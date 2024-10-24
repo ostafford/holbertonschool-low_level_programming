@@ -1,6 +1,6 @@
 # C - `'Variables'` | `'if'` | `'else'` | `'while'`
 
-## 0 - (`'if'` | `'else'` | `'printf'` | `''` | )
+### 0 - (`'if'` | `'else'` | `'printf'` | `''` | )
 Code: `if...else` statement
 Structure:\
 `if ([condition], [variable/value]){"Code to be executed eg. printf"}`
@@ -20,3 +20,6 @@ if (n > 0)
 	}
 ```
 
+### 1 
+
+### 2 
