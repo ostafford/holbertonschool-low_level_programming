@@ -13,20 +13,12 @@ int main(void)
 char hex;
 for (hex = '0'; hex <= '9'; hex++)
 {
-putchar(hex);
+putchar (hex);
 }
-for(hex = 'a'; hex <= 'f'; hex++)
+for (hex = 'a'; hex <= 'f'; hex++)
 {
-putchar(hex);
+putchar (hex);
 }
-putchar('\n');
+putchar ('\n');
 return (0);
 }
-
-/* 
-1. Initialization: The char variable chlow is initialized to 'z'.
-2. Loop: The for loop starts with chlow at 'z' and decrements it (chlow--) on each iteration, moving backward through the alphabet.
-3. Condition: The loop continues as long as chlow >= 'a'. This means it will stop when chlow goes below 'a'.
-4. Printing: In each iteration of the loop, putchar(chlow) prints the current value of chlow, starting from 'z' and moving toward 'a'.
-5. Newline: After all characters have been printed, putchar('\n') moves the cursor to a new line. 
-*/
