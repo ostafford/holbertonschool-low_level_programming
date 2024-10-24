@@ -10,10 +10,14 @@
  */
 int main(void)
 {
-char chlow = 'z';
-for (chlow = 'z'; chlow >= 'a'; chlow--)
+char hex;
+for (hex = '0'; hex <= '9'; hex++)
 {
-putchar(chlow);
+putchar(hex);
+}
+for(hex = 'a'; hex <= 'f'; hex++)
+{
+putchar(hex);
 }
 putchar('\n');
 return (0);
