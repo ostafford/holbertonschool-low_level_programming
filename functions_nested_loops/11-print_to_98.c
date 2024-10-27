@@ -6,22 +6,22 @@
  * return: sum of a and b
  */
 
-void print_to_98(int num)
+void print_to_98(int n)
 {
 	int i, s;
 
-	if (num <= 98)
+	if (n <= 98)
 	{
-		for (i = num; i <= 98; i++)
+		for (i = n; i <= 98; i++)
 		{
 			if (i != 98)
 				_putchar("%d, ", i);
 			else if (i == 98)
 				_putchar("%d\n", i);
 		}
-	} else if (num >= 98)
+	} else if (n >= 98)
 	{
-		for (s = num; s >= 98; s--)
+		for (s = n; s >= 98; s--)
 		{
 			if (s != 98)
 				_putchar("%d, ", s);
