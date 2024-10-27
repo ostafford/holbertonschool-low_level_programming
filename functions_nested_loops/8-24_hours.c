@@ -1,21 +1,28 @@
 #include "main.h"
 /**
- * print_last_digit - function that prints the last digit of a number.
- * @l:  is the int that will use for the argument of the function
- * Return: 0
+ * jack_bauer - prints every minute of the day of Jack Bauer
+ * starting from 00:00 to 23:59
  */
 
-int print_last_digit(int l)
+void jack_bauer(void)
 {
-if (l > 0 || l == 0)
-{
-_putchar (l % 10 + '0');
-return (l % 10);
-}
-else
-{
-l = l * -1;
-_putchar (l % 10 + '0');
-return (l % 10);
-}
+	int hour, minute;
+
+	hour = 0;
+
+	while (hour < 24)
+	{
+		minute = 0;
+		while (minute < 60)
+		{
+			_putchar((hour / 10) + '0');
+			_putchar((hour % 10) + '0');
+			_putchar(':');
+			_putchar((minute / 10) + '0');
+			_putchar((minute % 10) + '0');
+			_putchar('\n');
+			minute++;
+		}
+		hour++;
+	}
 }
