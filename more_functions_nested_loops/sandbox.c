@@ -1,16 +1,10 @@
 #include <stdio.h>
 
 
-int main()
+int main(int a, int b)
 {
-int c = 55;
 
-if (c >= 48 && c <= 57)
-{
-    printf("%d",c);
-}
-else
-{
-return (0);
-}
+int a = 5
+int b = 5 
+return (a*b);
 }
