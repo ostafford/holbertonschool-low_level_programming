@@ -10,13 +10,14 @@
 
 int _atoi(char *s)
 {
-	int i, negative, result, string_length, flag;
+	int i, negative, result, string_length, flag, offset;
 
 	i = 0;
 	negative = 0;
 	result = 0;
 	string_length = 0;
 	flag = 0;
+	offset = 0;
 
 	while (s[string_length] != '\0')
 		string_length = string_length + 1;
@@ -26,6 +27,7 @@ int _atoi(char *s)
 		if (s[i] == '-')
 			negative = negative + 1;
 
+		offset = s[i] - 0;
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			i = i + 1;
