@@ -35,9 +35,9 @@ int _atoi(char *s)
 					result = result * 10 + offset;
 					flag = 1;
 					if (s[i + 1] < '0' || s[i + 1] > '9')
-			i = i + 1;
 			return (result);
 		}
+			i = i + 1;
 	}
 
 	if (flag == 0)
