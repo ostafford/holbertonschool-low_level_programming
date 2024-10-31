@@ -15,6 +15,7 @@ i = 0;
 while (str[i] != '\0')
 {
 _putchar(stdout[i]);
+i = i +1;
 }
 _putchar('\n');
 return (0);
