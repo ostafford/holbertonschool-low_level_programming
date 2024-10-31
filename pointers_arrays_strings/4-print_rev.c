@@ -12,7 +12,14 @@ int i;
 i = 0;
 while (s[i] != '\0')
 {
-i = i +1;
+i = i + 1;
 }
-_putchar(i);
+
+char length = i;
+int r;
+for (r = length - 1; r >= 0; r--)
+{
+_putchar(s[r]);
+}
+_putchar('\n');
 }
