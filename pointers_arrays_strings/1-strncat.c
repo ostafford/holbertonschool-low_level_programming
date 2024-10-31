@@ -3,7 +3,7 @@
 
 /**
  * _strncat - concatenates n bytes from a string to another
- * 
+ *
  * @dest: destination string
  * @src: source string
  * @n: number of bytes of str to concatenate
@@ -13,24 +13,23 @@
 
 char *_strncat(char *dest, char *src, int n)
 {
-    char i;
-    char l;
+char i;
+char l;
 
-    i = 0;
-    l = 0;
+i = 0;
+l = 0;
 
-    while (dest[i] != '\0')
-        i = i + 1;
+while (dest[i] != '\0')
+i = i + 1;
 
-        while (src[l] != '\0' && l < n)
-        {
-            dest[i] = src[l];
-        l = l + 1;
-        i = i + 1;
-        }
+while (src[l] != '\0' && l < n)
+{
+dest[i] = src[l];
+l = l + 1;
+i = i + 1;
+}
 
-        dest[i] = '\0';
+dest[i] = '\0';
 
-    return(dest);
-
+return (dest);
 }
