@@ -12,7 +12,7 @@ int i;
 i = 0;
 while (s[i] != '\0')
 {
-_putchar(i);
+_putchar(s);
 i = i +1;
 }
 _putchar('\n');
