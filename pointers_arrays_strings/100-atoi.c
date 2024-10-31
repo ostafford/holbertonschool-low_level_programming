@@ -10,14 +10,13 @@
 
 int _atoi(char *s)
 {
-	int i, negative, result, string_length, flag, offset;
+	int i, negative, result, string_length, flag;
 
 	i = 0;
 	negative = 0;
 	result = 0;
 	string_length = 0;
 	flag = 0;
-	offset = 0;
 
 	while (s[string_length] != '\0')
 		string_length = string_length + 1;
