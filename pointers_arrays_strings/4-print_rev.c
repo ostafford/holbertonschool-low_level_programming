@@ -13,6 +13,6 @@ while (s[i] != '\0')
 {
 i = i +1;
 }
-_putchar(s);
+_putchar(i);
 _putchar('\n');
 }
