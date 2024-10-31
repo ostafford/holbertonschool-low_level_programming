@@ -21,10 +21,10 @@ void rev_string(char *s)
 
 	revlen = length - 1;
 
-	for (i = 0; i < length / 2; i = i +1)
+	for (i = 0; i < length / 2; i = i + 1)
 	{
 		tmp = s[i];
 		s[i] = s[revlen];
-		s[revlen = revlen - 1] = tmp;
+		s[revlen = - 1] = tmp;
 	}
 }
