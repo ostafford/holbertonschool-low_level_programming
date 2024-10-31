@@ -30,15 +30,15 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			offset = s[i] - '0';
-				if (negative % 2)
-					offset = -offset;
-					result = result * 10 + offset;
-					flag = 1;
-					if (s[i + 1] < '0' || s[i + 1] > '9')
-			return (result);
+			if (negative % 2)
+				offset = -offset;
+			result = result * 10 + offset;
+			flag = 1;
+			if (s[i + 1] < '0' || s[i + 1] > '9')
+            return(result);
 			flag = 0;
 		}
-			i = i + 1;
+		i = i + 1;
 	}
 
 	if (flag == 0)
