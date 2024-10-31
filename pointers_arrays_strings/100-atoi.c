@@ -30,6 +30,8 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			offset = s[i] - 0;
+				if (negative % 2)
+					offset = -offset;
 			i = i + 1;
 			return (result);
 		}
