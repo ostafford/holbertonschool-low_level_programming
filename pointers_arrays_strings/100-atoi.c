@@ -32,6 +32,7 @@ int _atoi(char *s)
 			offset = s[i] - 0;
 				if (negative % 2)
 					offset = -offset;
+					result = result * 10;
 			i = i + 1;
 			return (result);
 		}
