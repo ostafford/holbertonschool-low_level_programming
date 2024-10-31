@@ -15,7 +15,7 @@ while (s[i] != '\0')
 i = i + 1;
 }
 
-char length = i;
+int length = i;
 int r;
 for (r = length - 1; r >= 0; r--)
 {
