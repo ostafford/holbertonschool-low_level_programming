@@ -1,18 +1,18 @@
+#include <stdio.h>
 #include "main.h"
+
 /**
  * print_to_98 - prints all natural numbers from n to 98,
- * insert new line
- * @num: print from this number 
- * return: sum of a and b
+ * followed by a new line
+ * @n: print from this number
  */
-
 void print_to_98(int n)
 {
-	int i, s;
+	int i, j;
 
 	if (n <= 98)
 	{
-		for (i = n; i <= 98; i++)
+		for (i = n; i <= 98; i = i + 1)
 		{
 			if (i != 98)
 				printf("%d, ", i);
@@ -21,12 +21,12 @@ void print_to_98(int n)
 		}
 	} else if (n >= 98)
 	{
-		for (s = n; s >= 98; s--)
+		for (j = n; j >= 98; j = j - 1)
 		{
-			if (s != 98)
-				printf("%d, ", s);
+			if (j != 98)
+				printf("%d, ", j);
 			else if (j == 98)
-				printf("%d\n", s);
+				printf("%d\n", j);
 		}
 	}
 }
