@@ -15,14 +15,10 @@ int i,
 j,
 tmp;
 
-i = 0;
 j = n;
 
-while (i < n)
+for (i = 0; i < n; i = i + 1)
 {
 a[--j] = tmp;
-i = i + 1;
 }
-
-
 }
