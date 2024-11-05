@@ -17,6 +17,7 @@ char *_memset(char *s, char buffer, unsigned int n)
     {
         s[i] = buffer;
     }
+    return (s);
 }
 
 /* Text Segment */
