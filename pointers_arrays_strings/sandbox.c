@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Function Prototype */
-char *_strpbrk(char *s, char *accept);
+char *_strstr(char *haystack, char *needle);
 
 /* Data Segment */
 
@@ -11,22 +11,21 @@ char *_strpbrk(char *s, char *accept);
 
 
 /* Stack */
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int i, index_match;
+	int i;
+	int index_match;
 
-	for (i = 0; *s != '\0'; i = i + 1)
+	for (i = 0; haystack[i] != '\0'; i = i + 1)
 	{
-		for (index_match = 0; accept[index_match] != '\0'; index_match = index_match + 1)
+		for (index_match = 0; needle[index_match] != '\0'; index_match = index_match + 1)
 		{
-			if (*s == accept[index_match])
-			{
-				return (s);
-			}
+			if (haystack[i + index_match] != needle[index_match])
+				break;
 		}
-		s = s + 1;
+		if (!needle[index_match])
+			return (&haystack[i]);
 	}
-
 	return (NULL);
 }
 
@@ -37,8 +36,7 @@ int main(void)
     char *f = "world";
     char *t;
 
-    t = _strpbrk(s, f);
+    t = _strstr(s, f);
     printf("%s\n", t);
     return (0);
 }
-
