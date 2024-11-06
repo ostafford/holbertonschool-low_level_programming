@@ -15,18 +15,18 @@ void print_diagsums(int *a, int size)
 {
 	int i;
 
-	unsigned int sum_1, sum_2;
+	unsigned int diag_1, diag_2;
 
-	sum_1 = 0;
-	sum_2 = 0;
+	diag_1 = 0;
+	diag_2 = 0;
 
 	for (i = 0; i < size; i = i + 1)
 	{
-		sum_1 += a[(size * i) + i];
-		sum_2 += a[(size * (i + 1)) - (i + 1)];
+		diag_1 += a[(size * i) + i];
+		diag_2 += a[(size * (i + 1)) - (i + 1)];
 	}
 
-	printf("%d, %d\n", sum_1, sum_2);
+	printf("%d, %d\n", diag_1, diag_2);
 }
 
 
