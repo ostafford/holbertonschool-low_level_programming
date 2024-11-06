@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Function Prototype */
-unsigned int _strspn(char *s, char *accept);
+char *_strpbrk(char *s, char *accept);
 
 /* Data Segment */
 
@@ -11,43 +11,34 @@ unsigned int _strspn(char *s, char *accept);
 
 
 /* Stack */
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-	int i,
-	index_check,
-	count_match,
-	char_match;
+	int i, index_match;
 
-	count_match = 0;
-
-	for (i = 0; s[i] != '\0'; i = i + 1)
+	for (i = 0; *s != '\0'; i = i + 1)
 	{
-		char_match = 0;
-		for (index_check = 0; accept[index_check] != '\0'; index_check = index_check + 1)
+		for (index_match = 0; accept[index_match] != '\0'; index_match = index_match + 1)
 		{
-			if (s[i] == accept[index_check])
+			if (*s == accept[index_match])
 			{
-				count_match = count_match + 1;
-				char_match = 1;
+				return (s);
 			}
 		}
-		if (char_match == 0)
-		{
-			return (count_match);
-		}
+		s = s + 1;
 	}
 
-	return (0);
+	return (NULL);
 }
 
 /* Text Segment */
 int main(void)
 {
     char *s = "hello, world";
-    char *f = "oleh";
-    unsigned int n;
+    char *f = "world";
+    char *t;
 
-    n = _strspn(s, f);
-    printf("%u\n", n);
+    t = _strpbrk(s, f);
+    printf("%s\n", t);
     return (0);
 }
+
