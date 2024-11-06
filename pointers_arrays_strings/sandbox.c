@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Function Prototype */
-char *_strstr(char *haystack, char *needle);
+void print_chessboard(char (*a)[8]);
 
 /* Data Segment */
 
@@ -11,32 +11,34 @@ char *_strstr(char *haystack, char *needle);
 
 
 /* Stack */
-char *_strstr(char *haystack, char *needle)
+void print_chessboard(char (*a)[8])
 {
-	int i;
+	int i; 
 	int index_match;
 
-	for (i = 0; haystack[i] != '\0'; i = i + 1)
+	for (i = 0; i < 8; i = i + 1)
 	{
-		for (index_match = 0; needle[index_match] != '\0'; index_match = index_match + 1)
+		for (index_match = 0; index_match < 8; index_match = index_match + 1)
 		{
-			if (haystack[i + index_match] != needle[index_match])
-				break;
+			putchar(a[i][index_match]);
 		}
-		if (!needle[index_match])
-			return (&haystack[i]);
+		putchar('\n');
 	}
-	return (NULL);
 }
 
 /* Text Segment */
 int main(void)
 {
-    char *s = "hello, world";
-    char *f = "world";
-    char *t;
-
-    t = _strstr(s, f);
-    printf("%s\n", t);
+    char board[8][8] = {
+        {'r', 'k', 'b', 'q', 'k', 'b', 'k', 'r'},
+        {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+        {'R', 'K', 'B', 'Q', 'K', 'B', 'K', 'R'},
+    };
+    print_chessboard(board);
     return (0);
 }
