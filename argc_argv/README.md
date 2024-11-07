@@ -79,9 +79,59 @@ Code Execution:
 ```
 
 ## 2. 2. The best argument against democracy is a five-minute conversation with the average voter
+```
+#include <stdio.h>  // Include standard input/output library
 
+int main(int argc, char *argv[]) {
+    int i;  // Declare an integer variable for loop counter
 
+    // Loop through each argument passed to the program
+    for (i = 0; i < argc; i++) {
+        // Print the current argument (argv[i]) followed by a newline
+        printf("%s\n", argv[i]);
+    }
 
+    return (0);  // Return 0 to indicate successful execution
+}
+
+```
+// Loop through each argument passed to the program\
+`for (i = 0; i < argc; i++) {`\
+// Print the current argument (argv[i]) followed by a newline\
+`printf("%s\n", argv[i]);`
+}
+```
+                 ┌───────────┐
+                 │  Program  │
+                 │ Execution │
+                 └─────┬─────┘
+                       │
+                       ▼
+             ┌────────────────────┐
+             │ Command Line Input │
+             │    `argc`, `argv`  │
+             └────────┬───────────┘
+                      │
+                      ▼
+         ┌────────────────────────────────┐
+         │ Argument Parsing (Shell)       │
+         │ - Splits input by spaces       │
+         │ - Treats quoted strings as a   │
+         │   single argument              │
+         └───────────┬──-────────────────-┘
+                     │
+                     ▼
+            ┌─────────────────────┐
+            │ For Loop:           │
+            │ i = 0; i < argc; i++│
+            └────────┬────────────┘
+                     │
+      ┌──────────────▼--───────────────┐
+      │  printf("%s\n", argv[i]);      │
+      │   // Print each argument       │
+      └────────────────────────────────┘
+
+```
 
 
 ## 3. Neither irony nor sarcasm is argument

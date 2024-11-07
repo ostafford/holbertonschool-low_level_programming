@@ -1,14 +1,13 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
-/* Function Prototype */
-int main(int argc, char *argv[]);
-
-/* Data Segment */
-
-/* BSS Segment */
-
-/* Stack */
+/**
+ * main - prints the name of the program
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: Always 0 (Success)
+ */
 int main(int argc, char *argv[])
 {
 int i;
@@ -23,5 +22,3 @@ printf("%s\n", argv[i]);
 }
 return (0);
 }
-
-/* Text Segment */
