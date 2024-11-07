@@ -206,19 +206,19 @@ int factorial(int n) {
 
 ```
 
-Detailed Step-by-Step Explanation
-First if condition (if (n < 0)):
+#### Detailed Step-by-Step Explanation
+1. First if condition (if (n < 0)):
 
-This checks if n is a negative number.
-Since factorials are only defined for non-negative integers, if n is negative, the function returns -1 as an error code. This is a safeguard to avoid incorrect input.
-Second if condition (if (n == 0)):
+- This checks if n is a negative number.
+- Since factorials are only defined for non-negative integers, if n is negative, the function returns -1 as an error code. This is a safeguard to avoid incorrect input.
+2. Second if condition (if (n == 0)):
 
-If n is 0, we know that the factorial of 0 is defined to be 1 (0! = 1), so the function returns 1.
-Recursive Case (return (n * factorial(n - 1))):
+- If n is 0, we know that the factorial of 0 is defined to be 1 (0! = 1), so the function returns 1.
+3. Recursive Case (return (n * factorial(n - 1))):
 
-If neither of the above conditions are met (i.e., n is a positive integer), the function calculates the factorial recursively.
-It multiplies n by the result of factorial(n - 1), which is a call to the same function with the argument n - 1.
-This process repeats until n reaches 0, where the base case (n == 0) is hit and the recursion starts returning values.
+- If neither of the above conditions are met (i.e., n is a positive integer), the function calculates the factorial recursively.
+- It multiplies n by the result of factorial(n - 1), which is a call to the same function with the argument n - 1.
+- This process repeats until n reaches 0, where the base case (n == 0) is hit and the recursion starts returning values.
 
 ```
 factorial(4)                     // The initial call
@@ -242,7 +242,49 @@ factorial(4)                     // The initial call
 
 ## 4. Once an idea has taken hold of the brain it's almost impossible to eradicate
 
+```
+int sqrt_recursion(int n) {
+    // First check if the number is negative
+    if (n < 0)
+        return (-1);  // Cannot calculate square root of negative numbers
+    
+    // Start the recursive process with initial value i = 0
+    return (inner_sqrt_recursion(n, i));
+}
 
+```
+```
+int inner_sqrt_recursion(int n, int i) {
+    // Base case 1: if i*i exceeds n, no perfect square root exists
+    if (i * i > n)
+        return (-1);
+    
+    // Base case 2: if i*i equals n, we found the square root
+    if (i * i == n)
+        return (i);
+    
+    // Recursive case: increment i and keep checking
+    return (inner_sqrt_recursion(n, i + 1));
+}
+```
+
+```
+_sqrt_recursion(n)
+    |
+    |----> if (n < 0) return -1  // If n is negative, return error code
+    |
+    |----> return inner_sqrt_recursion(n, 0)  // Start recursion with i = 0
+              |
+              |--> inner_sqrt_recursion(n, i)
+                          |
+                          |----> if (i * i > n) return -1    // Not a perfect square
+                          |
+                          |----> if (i * i == n) return i    // Found the square root
+                          |
+                          |----> return inner_sqrt_recursion(n, i + 1)  // Recurse with i+1
+
+
+```
 
 
 
