@@ -190,8 +190,55 @@ Final result: Length of "Hello" is 5
 
 ## 3. You mustn't be afraid to dream a little bigger, darling
 
+```
+int factorial(int n) {
+    // Step 1: Check if the number is negative
+    if (n < 0) 
+        return (-1);  // If n is negative, return -1 to indicate an error.
 
+    // Step 2: Check if n is 0
+    if (n == 0) 
+        return (1);  // If n is 0, return 1 (by definition of factorial).
 
+    // Step 3: Recursive case
+    return (n * factorial(n - 1));  // Multiply n by the factorial of (n-1) recursively.
+}
+
+```
+
+Detailed Step-by-Step Explanation
+First if condition (if (n < 0)):
+
+This checks if n is a negative number.
+Since factorials are only defined for non-negative integers, if n is negative, the function returns -1 as an error code. This is a safeguard to avoid incorrect input.
+Second if condition (if (n == 0)):
+
+If n is 0, we know that the factorial of 0 is defined to be 1 (0! = 1), so the function returns 1.
+Recursive Case (return (n * factorial(n - 1))):
+
+If neither of the above conditions are met (i.e., n is a positive integer), the function calculates the factorial recursively.
+It multiplies n by the result of factorial(n - 1), which is a call to the same function with the argument n - 1.
+This process repeats until n reaches 0, where the base case (n == 0) is hit and the recursion starts returning values.
+
+```
+factorial(4)                     // The initial call
+  |
+  v
+4 * factorial(3)                 // This calls factorial(3)
+                 |
+                 v
+           3 * factorial(2)     // This calls factorial(2)
+                       |
+                       v
+                2 * factorial(1) // This calls factorial(1)
+                           |
+                           v
+                    1 * factorial(0) // This calls factorial(0)
+                                       |
+                                       v
+                                  1   // factorial(0) returns 1 (base case)
+
+```
 
 ## 4. Once an idea has taken hold of the brain it's almost impossible to eradicate
 
