@@ -16,7 +16,5 @@ for (i = 0; i < argc; i++)
 printf("%s\n", argv);
 }
 
-(void)argv;
-
 return (0);
 }
