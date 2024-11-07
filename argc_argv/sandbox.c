@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Function Prototype */
-int main(int argc __attribute__((unused)), char *argv[]);
+int main(int argc, char *argv[]);
 
 /* Data Segment */
 
@@ -11,7 +11,7 @@ int main(int argc __attribute__((unused)), char *argv[]);
 
 
 /* Stack */
-int main(int argc __attribute__((unused)), char *argv[])
+int main(int argc, char *argv[])
 {
 	printf("%s\n", *argv);
 
