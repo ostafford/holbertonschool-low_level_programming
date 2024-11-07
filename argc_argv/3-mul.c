@@ -18,7 +18,7 @@ for (i = 1; i < argc; i = i + 1)
 {
 sum_add = sum_add + _atoi(argv[i]);
 }
-printf("%s\n", argv[i]);
+printf("%d\n", sum_add);
 }
 return (0);
 }
