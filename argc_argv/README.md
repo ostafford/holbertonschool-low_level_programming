@@ -1,6 +1,8 @@
 # C - argc, argv
 
 ## 0. It ain't what they call you, it's what you answer to
+
+
 ```
 #include <stdio.h> // Include the standard input/output library
 
@@ -13,7 +15,9 @@ int main(int argc, char *argv[]) // main function with arguments
 }
 
 ```
+
 `(void)argc;` // Explicitly mark argc as unused to avoid compiler warnings
+
 ```
 +---------------------------+
 | Command Line Execution    |
@@ -42,9 +46,40 @@ int main(int argc, char *argv[]) // main function with arguments
 
 ## 1. Silence is argument carried out by other means
 
+```
+#include <stdio.h> // Include the standard I/O library for printf
 
+int main(int argc, char *argv[]) // main function, with command-line arguments
+{
+    printf("%d\n", argc - 1); // Print the number of arguments minus 1
+
+    (void)argv; // Explicitly indicate that argv is unused
+
+    return (0); // End program, return 0 to indicate success
+}
+
+```
+
+`printf("%d\n", argc - 1);` // Print the number of arguments minus 1
+
+```
+Command: ./example arg1 arg2 arg3
+
+            ┌─────────────────────────────┐
+   argc = 4 │ "./example" "arg1" "arg2" "arg3" │
+            └─────────────────────────────┘
+              ↑        ↑       ↑       ↑
+            argv[0]  argv[1] argv[2] argv[3]
+
+Code Execution:
+1. Calculate argc - 1 -> 4 - 1 = 3
+2. Print "3\n" to console
+3. Return 0
+
+```
 
 ## 2. 2. The best argument against democracy is a five-minute conversation with the average voter
+
 
 
 
