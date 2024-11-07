@@ -141,7 +141,51 @@ _initial call_
 
 ## 2. Dreams feel real while we're in them. It's only when we wake up that we realize something was actually strange
 
+```
 
+int _strlen_recursion(char *s)
+{
+    // Base case: if the current character is the null terminator, return 0
+    if (*s == '\0')
+        return (0);
+
+    // Recursive case: 1 for the current character, plus the result of the next recursive call
+    return (1 + _strlen_recursion(s + 1));
+}
+
+```
+
+`return (1 + _strlen_recursion(s + 1));`\
+// Recursive case: 1 for the current character, plus the result of the next recursive call
+
+
+```
+Initial Call: _strlen_recursion("Hello")
+    |
+    v
+1 + _strlen_recursion("ello")
+    |
+    v
+1 + 1 + _strlen_recursion("llo")
+    |
+    v
+1 + 1 + 1 + _strlen_recursion("lo")
+    |
+    v
+1 + 1 + 1 + 1 + _strlen_recursion("o")
+    |
+    v
+1 + 1 + 1 + 1 + 1 + _strlen_recursion("")
+    |
+    v
+Base Case Reached: _strlen_recursion("") returns 0
+    |
+    v
+Unwinding the recursion:
+1 + 1 + 1 + 1 + 1 + 0 = 5
+Final result: Length of "Hello" is 5
+
+```
 
 
 ## 3. You mustn't be afraid to dream a little bigger, darling
