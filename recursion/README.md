@@ -61,7 +61,80 @@ Call 6: _puts_recursion("")
 
 ## 1. Why is it so important to dream? Because, in my dreams we are together
 
+```
+void _print_rev_recursion(char *s)
+{
+    // If the current character is not the null terminator (i.e., the string isn't done)
+    if (*s)
+    {
+        // Recur for the next character in the string
+        _print_rev_recursion(s + 1);
 
+        // After returning from the recursive call, print the current character
+        _putchar(*s);
+    }
+}
+
+
+```
+
+```
+_initial call_
+|--------------------------------|
+| _print_rev_recursion("ABC")   |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| _print_rev_recursion("BC")    | --> Moving to next character 'B'
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| _print_rev_recursion("C")     | --> Moving to next character 'C'
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| _print_rev_recursion("")      | --> Base case reached (end of string)
+|--------------------------------|
+   |
+   V
+|---------------------------|
+| Return from _print_rev_recursion("")  |
+|---------------------------|
+   |
+   V
+|--------------------------------|
+| _putchar('C')  --> Prints 'C' |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| Return from _print_rev_recursion("C")  |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| _putchar('B')  --> Prints 'B' |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| Return from _print_rev_recursion("BC")  |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| _putchar('A')  --> Prints 'A' |
+|--------------------------------|
+   |
+   V
+|--------------------------------|
+| End of recursion: All characters printed in reverse |
+|--------------------------------|
+
+```
 
 
 ## 2. Dreams feel real while we're in them. It's only when we wake up that we realize something was actually strange
