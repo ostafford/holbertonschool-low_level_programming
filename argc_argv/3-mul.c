@@ -11,14 +11,14 @@
 int main(int argc, char *argv[])
 {
 int i;
-int sum_add;
+int sum_multi;
 if (argc > 1)
 {
 for (i = 1; i < argc; i = i + 1)
 {
-sum_add = sum_add + _atoi(argv[i]);
+sum_multi = sum_multi * _atoi(argv[i]);
 }
-printf("%d\n", sum_add);
+printf("%d\n", sum_multi);
 }
 return (0);
 }
