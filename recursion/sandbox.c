@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Function Prototype */
-void _puts_recursion(char *s);
+void _print_rev_recursion(char *s);
 
 /* Data Segment */
 
@@ -11,15 +11,13 @@ void _puts_recursion(char *s);
 
 
 /* Stack */
-void _puts_recursion(char *s)
+void _print_rev_recursion(char *s)
 {
-	if (*s == '\0')
+	if (*s)
 	{
-		_putchar('\n');
-		return;
+		_print_rev_recursion(s - 1);
+		_putchar(*s);
 	}
-	_putchar(*s);
-	_puts_recursion(s + 1);
 }
 
 
@@ -27,6 +25,6 @@ void _puts_recursion(char *s)
 
 int main(void)
 {
-    _puts_recursion("Puts with recursion");
+    _print_rev_recursion("\nColton Walker");
     return (0);
 }
