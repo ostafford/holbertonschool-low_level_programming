@@ -13,10 +13,11 @@ int main(int argc, char *argv[]);
 /* Stack */
 int main(int argc, char *argv[])
 {
-	printf("%s\n", *argv);
-    (void)argc;
 
-	return (0);
+printf("%d\n", argc);
+(void)argv;
+
+return (0);
 }
 
 
