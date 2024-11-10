@@ -11,64 +11,71 @@ int _atoi(char *s);
 /* Stack */
 int _atoi(char *s)
 {
-	int i,
-    counter,
-    final_int,
-    string_length,
-    num_hit,
-    digit;
+	int i, d, n, len, f, digit;
 
 	i = 0;
-	counter = 0;
-	final_int = 0;
-	string_length = 0;
-	num_hit = 0;
+	d = 0;
+	n = 0;
+	len = 0;
+	f = 0;
 	digit = 0;
 
-	while (s[string_length] != '\0')
-		string_length = string_length + 1;
+	while (s[len] != '\0')
+		len = len +1;
 
-	while (i < string_length && num_hit == 0)
+	while (i < len && f == 0)
 	{
 		if (s[i] == '-')
-			++counter;
+			++d;
 
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			digit = s[i] - '0';
-			if (counter % 2)
+			if (d % 2)
 				digit = -digit;
-			final_int = final_int * 10 + digit;
-			num_hit = 1;
+			n = n * 10 + digit;
+			f = 1;
 			if (s[i + 1] < '0' || s[i + 1] > '9')
 				break;
-			num_hit = 0;
+			f = 0;
 		}
-		i = i + 1;
+		i++;
 	}
 
-	if (num_hit == 0)
+	if (f == 0)
 		return (0);
 
-	return (final_int);
+	return (n);
 }
 
 /* Text Segment */
 int main(int argc, char *argv[])
 {
-	int result, num1, num2;
+	int sum, num, i, j, k;
 
-	if (argc < 3 || argc > 3)
+	sum = 0;
+
+	for (i = 1; i < argc; i = i + 1)
 	{
-		printf("Error\n");
-		return (1);
+		for (j = 0; argv[i][j] != '\0'; j = j +1)
+		{
+			if (argv[i][j] > '9' || argv[i][j] < '0')
+			{
+				puts("Error");
+				return (1);
+			}
+		}
 	}
 
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argv[2]);
-	result = num1 * num2;
+	for (k = 1; k < argc; k = k +1)
+	{
+		num = _atoi(argv[k]);
+		if (num >= 0)
+		{
+			sum += num;
+		}
+	}
 
-	printf("%d\n", result);
-
+	printf("%d\n", sum);
 	return (0);
 }
