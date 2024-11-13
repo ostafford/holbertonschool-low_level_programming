@@ -242,6 +242,14 @@ factorial(4)                     // The initial call
 
 ## 4. Once an idea has taken hold of the brain it's almost impossible to eradicate
 
+
+
+
+
+## 5. Your subconscious is looking for the dreamer
+
+
+
 ```
 int sqrt_recursion(int n) {
     // First check if the number is negative
@@ -285,12 +293,6 @@ _sqrt_recursion(n)
 
 
 ```
-
-
-
-## 5. Your subconscious is looking for the dreamer
-
-
 
 
 ## 6. Inception. Is it possible?
