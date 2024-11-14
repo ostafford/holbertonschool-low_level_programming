@@ -1,15 +1,12 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
-/* Function Prototype */
-char *_strdup(char *str);
-
-/* Data Segment */
-
-/* BSS Segment */
-
-/* Stack */
+/**
+ * *_strdup - copies the string given as parameter
+ * @str: string to duplicate
+ *
+ * Return: pointer to the copied string (Success), NULL (Error)
+ */
 char *_strdup(char *str)
 {
 	char *dup;
@@ -33,20 +30,4 @@ char *_strdup(char *str)
 		i = i + 1;
 
 	return (dup);
-}
-
-/* Text Segment */
-int main(void)
-{
-    char *s;
-
-    s = _strdup("Duplicated");
-    if (s == NULL)
-    {
-        printf("failed to allocate memory\n");
-        return (1);
-    }
-    printf("%s\n", s);
-    free(s);
-    return (0);
 }
