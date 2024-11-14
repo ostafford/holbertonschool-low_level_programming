@@ -3,53 +3,26 @@
 #include <stdlib.h>
 
 /* Function Prototype */
-int **alloc_grid(int width, int height);
+void free_grid(int **grid, int height);
 
 /* Data Segment */
 
 /* BSS Segment */
 
 /* Stack */
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-	int **mem_array;
-	int i, j;
+	int i;
 
-	if (height <= 0 || width <= 0)
-		return (NULL);
+	if (grid == NULL || height == 0)
+		return;
 
-	mem_array = (int **) malloc(sizeof(int *) * height);
+	for (i = 0; i < height; i++)
+		free(grid[i]);
 
-	if (mem_array == NULL)
-		return (NULL);
-
-	for (i = 0; i < height; i = i + 1)
-	{
-		mem_array[i] = (int *) malloc(sizeof(int) * width);
-		if (mem_array[i] == NULL)
-		{
-			free(mem_array);
-			for (j = 0; j <= i; j = j + 1)
-				free(mem_array[j]);
-			return (NULL);
-		}
-	}
-
-	for (i = 0; i < height; i = i + 1)
-	{
-		for (j = 0; j < width; j = j + 1)
-		{
-			mem_array[i][j] = 0;
-		}
-	}
-	return (mem_array);
+	free(grid);
 }
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
+/* Text Segment */
 int main(void)
 {
     int **grid;
@@ -64,5 +37,6 @@ int main(void)
     grid[0][3] = 98;
     grid[3][4] = 402;
     print_grid(grid, 6, 4);
+    free_grid(grid, 4);
     return (0);
 }
