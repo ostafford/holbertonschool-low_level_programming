@@ -1,15 +1,13 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
-/* Function Prototype */
-char *str_concat(char *s1, char *s2);
-
-/* Data Segment */
-
-/* BSS Segment */
-
-/* Stack */
+/**
+ * *str_concat - concatenates two strings
+ * @s1: string to concatenate
+ * @s2: other string to concatenate
+ *
+ * Return: pointer to the new string created (Success), or NULL (Error)
+ */
 char *str_concat(char *s1, char *s2)
 {
 	char *s3;
@@ -51,20 +49,4 @@ char *str_concat(char *s1, char *s2)
 	s3[i] = '\0';
 
 	return (s3);
-}
-
-/* Text Segment */
-int main(void)
-{
-    char *s;
-
-    s = str_concat("Best ", "School");
-    if (s == NULL)
-    {
-        printf("failed\n");
-        return (1);
-    }
-    printf("%s\n", s);
-    free(s);
-    return (0);
 }
