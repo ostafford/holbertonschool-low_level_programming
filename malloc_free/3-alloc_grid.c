@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Function Prototype */
-int **alloc_grid(int width, int height);
-
-/* Data Segment */
-
-/* BSS Segment */
-
-/* Stack */
+/**
+ * **alloc_grid - creates a two dimensional array of ints
+ * @width: width of the matrix
+ * @height: height of the matrix
+ *
+ * Return: pointer to the created matrix (Success)
+ * or NULL (Error)
+ */
 int **alloc_grid(int width, int height)
 {
 	int **mem_array;
@@ -43,26 +43,4 @@ int **alloc_grid(int width, int height)
 		}
 	}
 	return (mem_array);
-}
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int **grid;
-
-    grid = alloc_grid(6, 4);
-    if (grid == NULL)
-    {
-        return (1);
-    }
-    print_grid(grid, 6, 4);
-    printf("\n");
-    grid[0][3] = 98;
-    grid[3][4] = 402;
-    print_grid(grid, 6, 4);
-    return (0);
 }
