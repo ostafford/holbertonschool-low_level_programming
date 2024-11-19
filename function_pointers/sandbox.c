@@ -2,9 +2,10 @@
 #include "function_pointers.h"
 
 /* Function Prototype */
-void array_iterator(int *array, size_t size, void (*action)(int));
-void print_elem(int elem);
-void print_elem_hex(int elem);
+int abs_is_98(int elem);
+int is_strictly_positive(int elem);
+int is_98(int elem);
+
 
 /* Data Segment */
 
@@ -13,33 +14,49 @@ void print_elem_hex(int elem);
 
 
 /* Stack */
-void array_iterator(int *array, size_t size, void (*action)(int))
+int abs_is_98(int elem)
 {
-	unsigned int i;
+    return (elem == 98 || -elem == 98);
+}
+int is_strictly_positive(int elem)
 
-	if (!array || !action)
-		return;
+{
+    return (elem > 0);
+}
+int is_98(int elem)
 
-	for (i = 0; i < size; i = i + 1)
-		action(array[i]);
+{
+    return (98 == elem);
 }
 
-void print_elem(int elem)
+int int_index(int *array, int size, int (*cmp)(int))
 {
-    printf("%d\n", elem);
-}
+    int i;
 
-void print_elem_hex(int elem)
-{
-    printf("0x%x\n", elem);
+    if (array && cmp)
+    {
+        for (i = 0; i < array; i = i + 1)
+        {
+            if (cmp(array[i]) != 0)
+            return(i);
+        }
+        
+    }
+    return(0);
 }
 
 /* Text Segment */
 int main(void)
 {
-    int array[5] = {0, 98, 402, 1024, 4096};
+    int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
+    int index;
 
-    array_iterator(array, 5, &print_elem);
-    array_iterator(array, 5, &print_elem_hex);
+    index = int_index(array, 20, is_98);
+    printf("%d\n", index);
+    index = int_index(array, 20, abs_is_98);
+    printf("%d\n", index);
+    index = int_index(array, 20, is_strictly_positive);
+    printf("%d\n", index);
     return (0);
 }
+
