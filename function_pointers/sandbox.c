@@ -1,10 +1,15 @@
 #include <stdio.h>
-#include "function_pointers.h"
+#include <stdlib.h>
+#include <string.h>
+#include "3-calc.h"
 
 /* Function Prototype */
-int abs_is_98(int elem);
-int is_strictly_positive(int elem);
-int is_98(int elem);
+int (*get_op_func(char *s))(int, int);
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
 
 
 /* Data Segment */
@@ -14,49 +19,93 @@ int is_98(int elem);
 
 
 /* Stack */
-int abs_is_98(int elem)
+int (*get_op_func(char *s))(int, int)
 {
-    return (elem == 98 || -elem == 98);
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
+
+	i = 0;
+
+	while (ops[i].op)
+	{
+		if (strcmp(ops[i].op, s) == 0)
+			return (ops[i].f);
+		i = i + 1;
+	}
+
+	return (NULL);
 }
-int is_strictly_positive(int elem)
+int op_add(int a, int b)
 
 {
-    return (elem > 0);
+	return (a + b);
 }
-int is_98(int elem)
+int op_sub(int a, int b)
+
 
 {
-    return (98 == elem);
+	return (a - b);
 }
+int op_mul(int a, int b)
 
-int int_index(int *array, int size, int (*cmp)(int))
+
 {
-    int i;
-
-    if (array && cmp)
-    {
-        for (i = 0; i < size; i = i + 1)
-        {
-            if (cmp(array[i]) != 0)
-            return(i);
-        }
-        
-    }
-    return(-1);
+	return (a * b);
 }
+int op_div(int a, int b)
 
+
+{
+	return (a / b);
+}
+int op_mod(int a, int b)
+
+
+{
+	return (a % b);
+}
 /* Text Segment */
-int main(void)
+int main(int argc, char *argv[])
 {
-    int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
-    int index;
+	int arg1, arg2, result;
+	char o;
+	int (*func)(int, int);
 
-    index = int_index(array, 20, is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, abs_is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, is_strictly_positive);
-    printf("%d\n", index);
-    return (0);
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	arg1 = atoi(argv[1]);
+	arg2 = atoi(argv[3]);
+
+	func = get_op_func(argv[2]);
+
+	if (!func)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	o = *argv[2];
+
+	if ((o == '/' || o == '%') && arg2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	result = func(arg1, arg2);
+
+	printf("%d\n", result);
+
+	return (0);
 }
-
