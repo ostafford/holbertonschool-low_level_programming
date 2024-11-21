@@ -51,13 +51,13 @@ void print_all(const char * const format, ...)
 			}
 
                    string_separator = ", ";
-                   printf("\n");
         i = i + 1;
         }
 
     
     }
 va_end(argument_list);
+                   printf("\n");
 }
 
 
