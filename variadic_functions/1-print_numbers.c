@@ -1,22 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "variadic_functions.h"
 
-
-/* Function Prototype */
-void print_numbers(const char *separator, const unsigned int n, ...);
-
-/* Data Segment */
-
-
-/* BSS Segment */
-
-
-/* Stack */
+/**
+ * print_numbers - prints numbers given as parameters
+ * @separator: string to be printed between numbers
+ * @n: number of integers passed to the function
+ */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-    unsigned int i;
+	unsigned int i;
 	va_list argument_list;
 
 	va_start(argument_list, n);
@@ -32,11 +23,4 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	}
 
 	va_end(argument_list);
-}
-
-/* Text Segment */
-int main(void)
-{
-    print_numbers(", ", 4, 0, 98, -1024, 402);
-    return (0);
 }
