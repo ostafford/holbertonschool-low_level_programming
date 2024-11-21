@@ -50,7 +50,8 @@ void print_all(const char * const format, ...)
 					continue;
 			}
 
-                   string_separator = ", "; 
+                   string_separator = ", ";
+                   printf("\n");
         i = i + 1;
         }
 
