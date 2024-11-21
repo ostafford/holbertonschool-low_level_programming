@@ -1,20 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "variadic_functions.h"
 
-
-/* Function Prototype */
-void print_strings(const char *separator, const unsigned int n, ...);
-
-
-/* Data Segment */
-
-
-/* BSS Segment */
-
-
-/* Stack */
+/**
+ * print_strings - prints strings
+ * @separator: separator between strings
+ * @n: number of arguments
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
@@ -34,18 +24,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		else if (separator && i == 0)
 			printf("%s", string);
 		else
-			printf("%s%s", separator, string);
+			printf("%s", separator, string);
 	}
 	printf("\n");
 
 	va_end(argument_list);
 
-}
-
-
-/* Text Segment */
-int main(void)
-{
-    print_strings(", ", 2, "Jay", "Django");
-    return (0);
 }
