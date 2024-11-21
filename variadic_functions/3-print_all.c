@@ -38,6 +38,7 @@ void print_all(const char * const format, ...)
 					i = i + 1;
 					continue;
 			}
+			string_separator = ", ";
 			i = i + 1;
 		}
 	}
